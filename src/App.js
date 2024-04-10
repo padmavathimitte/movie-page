@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import ReactPaginate from 'react-paginate';
+
 
 function App() {
+
+  const handlePageClick = (data) => {
+    console.log(data)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header></header>
+      <div>
+        <ReactPaginate 
+          previousLabel={'prev'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          pageCount={20}
+          marginPagesDisplayed={3}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+          containerClassName={'pagination justify-content-center'}
+          pageClassName={'page-item'}
+          pageLinkClassName={'page-link'}
+          previousClassName={'page-item'}
+          previousLinkClassName={'page-link'}
+          nextClassName={'page-item'}
+          nextLinkClassName={'page-link'}
+          breakClassName={'page-item'}
+          breakLinkClassName={'page-link'}
+          activeClassName={'active'}
+        />
+      </div>
     </div>
   );
 }
